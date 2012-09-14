@@ -151,7 +151,7 @@ class HomeController < ApplicationController
   #----------------------------------------------------------------------------
   def activity_duration
     duration = current_user.pref[:activity_duration]
-    if duration
+    if duration 
       words = duration.split("_") # "two_weeks" => 2.weeks
       if %w(one two).include?(words.first)
         %w(zero one two).index(words.first).send(words.last)

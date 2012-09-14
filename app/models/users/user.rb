@@ -109,7 +109,7 @@ class User < ActiveRecord::Base
 
   #----------------------------------------------------------------------------
   def full_name
-    self.first_name.blank? && self.last_name.blank? ? self.email : "#{self.first_name} #{self.last_name}".strip
+    self.last_name.blank? && self.first_name.blank? ? self.email : "#{self.last_name}#{self.first_name}".strip
   end
 
   #----------------------------------------------------------------------------

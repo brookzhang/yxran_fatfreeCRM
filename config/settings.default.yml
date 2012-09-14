@@ -51,7 +51,7 @@
 #
 # :host: "http://www.example.com"
 #
-:host: ""
+:host: "http://172.30.5.223"
 
 
 # Base URL
@@ -71,7 +71,8 @@
 #------------------------------------------------------------------------------
 # Default locale is American English.
 #
-:locale: "en-US"
+# :locale: "en-US"  
+:locale: "zh-CN"  
 
 
 # Settings for outgoing email (SMTP)
