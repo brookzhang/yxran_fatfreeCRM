@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801032706) do
+ActiveRecord::Schema.define(:version => 20120918030921) do
 
   create_table "account_contacts", :force => true do |t|
     t.integer  "account_id"
@@ -327,6 +327,15 @@ ActiveRecord::Schema.define(:version => 20120801032706) do
   end
 
   add_index "preferences", ["user_id", "name"], :name => "index_preferences_on_user_id_and_name"
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "measurement"
+    t.float    "unit_price"
+    t.string   "remark"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

@@ -24,10 +24,11 @@ zh-CN:
   tab_opportunities: 商机
 
   admin_tab_users: 用户
-  admin_tab_settings: 设置
+  admin_tab_system_manage: 系统设置
+  admin_tab_settings: 设定
   admin_tab_plugins: 插件
-  admin_tab_groups: 分组
-  admin_tab_fields: 主菜单
+  admin_tab_groups: 部门
+  admin_tab_fields: 栏位
   admin_tab_tags: 标签
 
   planned: 计划
@@ -35,7 +36,7 @@ zh-CN:
   on_hold: 搁置
   completed: 完成
   called_off: 取消
-  groups: 分组
+  groups: 部门
 
   new: 新建
   contacted: 已联系
@@ -634,43 +635,67 @@ zh-CN:
   user_suspended_on: 暂停于 %{value}
   users: 用户
   users_small: 用户
-  group_memberships: 用户组
-  #select_group: 选择分组
+  group_memberships: 用户归属部门
+  #select_group: 选择部门
 
 
   # Views -> Admin -> Groups.
   #----------------------------------------------------------------------------
   create_a_new: 创建新的
-  group_small: 分组
-  create_group: 创建分组
+  group_small: 部门
+  create_group: 创建部门
+  group_members: 成员
   
   
   # Views -> Admin -> Fields.
   #----------------------------------------------------------------------------
-  admin_fields_info: 主菜单调整
-  create_field_group: 创建菜单组
-  edit_field_group: 编辑菜单组
-  field_group_empty: 组中没有菜单
-  create_field: 新增菜单
+  admin_fields_info: 栏位调整
+  create_field_group: 创建栏位分组
+  edit_field_group: 编辑栏位分组
+  field_group_empty: 分组中没有栏位
+  create_field: 新增栏位
   restrict_by_tag: 标签限定
-  field_type: 菜单类型
-  field_group_unrestricted: 菜单组没有被限定
-  field_group_tag_restriction: 菜单组已有标签限定
-  custom_fields: 自定义菜单
-  field_group_confirm_delete: 菜单组确认删除
+  field_type: 栏位类型
+  field_group_unrestricted: 栏位分组没有被限定
+  field_group_tag_restriction: 栏位分组已有标签限定
+  custom_fields: 自定义栏位
+  field_group_confirm_delete: 栏位分组确认删除
   
   # Views -> Admin -> Tags.
   #----------------------------------------------------------------------------
   tag_small: 标签
   create_tag: 新增标签
-  field_group_tags: 菜单组标签
+  field_group_tags: 栏位分组标签
   save_tag: 保存标签
+  
+  # Views -> Admin -> Products.
+  #----------------------------------------------------------------------------
+  products: 商品
+  admin_tab_products: 商品
+  product_small: 商品
+  create_product: 新增商品
+  edit_product: 编辑商品
+  delete_product: 删除商品!
+  save_product: 保存
+  product_name: 商品名称
+  product_measurement: 计量单位
+  product_remark: 商品说明
+  unit_price: 单价
+  
+  # Views -> Admin -> Stocks.
+  #----------------------------------------------------------------------------
+  admin_tab_stocks: 库存
+  stocks: 库存
+  stock_small: 库存
   
   
   
   # Views -> Admin -> Settings.
   #----------------------------------------------------------------------------
   #settings: 设置
+  
+  
+  
   
   # Pluralizations.
   #----------------------------------------------------------------------------

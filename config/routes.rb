@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   resources :lists
 
   root :to => 'home#index'
@@ -179,12 +181,14 @@ Rails.application.routes.draw do
         get :confirm
       end
     end
+    
 
     resources :fields, :as => :custom_fields
     resources :fields, :as => :core_fields
 
     resources :settings
     resources :plugins
+    resources :products
   end
 
   get '/:controller/tagged/:id' => '#tagged'

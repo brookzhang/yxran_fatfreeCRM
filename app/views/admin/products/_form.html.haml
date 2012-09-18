@@ -1,0 +1,18 @@
+.section
+  %table
+    %tr
+      %td
+        .label.top.req #{t :product_name}:
+        = f.text_field :name
+    %tr
+      %td
+        .label.top.req #{t :product_measurement}:
+        = f.text_field :measurement
+    %tr
+      %td
+        .label.top.req #{t :unit_price}:
+        = f.text_field :unit_price
+    %tr
+      %td
+        .label.top.req #{t :product_remark}:
+        = f.text_field :remark

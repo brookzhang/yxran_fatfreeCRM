@@ -1,0 +1,17 @@
+%li.highlight[product]
+
+  %ul.tools
+    %li= link_to_edit [:admin, product]
+    %li= link_to_delete [:admin, product]
+
+  %span 
+    =link_to(product.name, {:action => :edit, :id => product.id}, {:remote  => true,
+          :onclick => "this.href = this.href.split('?')[0] + '?previous='+crm.find_form('edit_product');"})
+  %tt
+    = t('unit_price') << ":"
+    =product.unit_price.to_s + ' / ' + product.measurement
+  
+  
+  %dt{ :style => "padding: 2px 0px 0px 0px" }
+    =product.remark
+    

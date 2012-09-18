@@ -1,0 +1,21 @@
+id = dom_id(@product)
+
+if params[:cancel].true?     # <----------------- Hide [Edit product]
+  page[id].replace :partial => "product", :collection => [ @product ]
+
+else # <----------------------------------------  Show [Edit product] form.
+
+  if @previous                                    # Hide open [Edit product] form if any.
+    if @previous.is_a?(product)                      # Previous product still exists?
+      page[dom_id(@previous)].replace :partial => "product", :collection => [ @previous ]
+    else
+      page.call "crm.flick", "product_#{@previous}", :remove
+    end
+  end
+
+  page.call "crm.highlight_off", id               # Disable onMouseOver for the list item.
+  page.call "crm.hide_form", :create_product         # Hide [Create product] form if any.
+  page[id].replace_html :partial => "edit"        # Show [Edit product] form.
+  page[:product_name].focus
+
+end
