@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918030921) do
+ActiveRecord::Schema.define(:version => 20120919013358) do
 
   create_table "account_contacts", :force => true do |t|
     t.integer  "account_id"
@@ -355,6 +355,38 @@ ActiveRecord::Schema.define(:version => 20120918030921) do
   end
 
   add_index "settings", ["name"], :name => "index_settings_on_name"
+
+  create_table "stock_product_histories", :force => true do |t|
+    t.integer  "stock_product_id"
+    t.integer  "adjusted_by"
+    t.integer  "adjuested_to"
+    t.string   "adjust_type"
+    t.string   "remark"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "stock_product_histories", ["stock_product_id"], :name => "index_stock_product_histories_on_stock_product_id"
+
+  create_table "stock_products", :force => true do |t|
+    t.integer  "stock_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "stock_products", ["product_id"], :name => "index_stock_products_on_product_id"
+  add_index "stock_products", ["stock_id", "product_id"], :name => "index_stock_products_on_stock_id_and_product_id"
+  add_index "stock_products", ["stock_id"], :name => "index_stock_products_on_stock_id"
+
+  create_table "stocks", :force => true do |t|
+    t.string   "name"
+    t.string   "remark"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

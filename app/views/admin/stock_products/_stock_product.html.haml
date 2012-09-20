@@ -1,0 +1,13 @@
+%li.highlight[stock_product]
+
+  %ul.tools
+    %li= link_to_edit [:admin, stock,stock_product]
+    %li= link_to_delete [:admin, stock,stock_product]
+
+  %span 
+    ='historys'
+  %tt
+    = t('stock_status') << ":"
+    =t(stock_product.quantity)
+  
+    

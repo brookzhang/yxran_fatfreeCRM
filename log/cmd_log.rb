@@ -5,27 +5,61 @@
 
 Command	Description
 rake -T
-rake ffcrm:setup	 Prepare the database and set up Fat Free CRM
-rake ffcrm:setup:admin	 Create admin user
-rake ffcrm:demo:load	 Load demo data
+rake ffcrm:setup	 #Prepare the database and set up Fat Free CRM
+rake ffcrm:setup:admin	 #Create admin user
+rake ffcrm:demo:load	 #Load demo data
 rake ffcrm:demo:reload
-rake ffcrm:dropbox:run	 Run dropbox crawler and process incoming emails
-rake ffcrm:settings:clear	 Clear settings from database (reset to default)
-rake assets:precompile	 Precompile static assets (javascript/css/etc.) for deployment
-rake spec:acceptance	 Run the acceptance specs in spec/acceptance
-rake spec:no_acceptance	 Run all specs except acceptance tests
+rake ffcrm:dropbox:run	 #Run dropbox crawler and process incoming emails
+rake ffcrm:settings:clear	 #Clear settings from database (reset to default)
+rake assets:precompile	 #Precompile static assets (javascript/css/etc.) for deployment
+rake spec:acceptance	 #Run the acceptance specs in spec/acceptance
+rake spec:no_acceptance	 #Run all specs except acceptance tests
 
 
 rails g model entities/Product name:string measurement:string unit_price:float remark:string 
 rails g controller admin/Products index new create edit update destroy
 
 rails g model Stock name:string remark:string status:integer
-rails g model Stock_Product stock_id:integer product_id:integer quangtity:integer
+rails g model Stock_Product stock_id:integer product_id:integer quantity:integer
 rails g model Stock_Product_History stock_product_id:integer adjusted_by:integer adjuested_to:integer adjust_type:string remark:string
-raisl g controller admin/Stocks index new create edit update destroy
+rails g controller admin/Stocks index new create edit update destroy
+rails g controller admin/stock_products index new create edit update destroy
 
 
 
+
+
+crm.flip_form("create_stock");
+$("create_stock").update("
+<form accept-charset=\"UTF-8\" action=\"/admin/stocks\" autocomplete=\"off\" class=\"new_stock\" data-remote=\"true\" id=\"new_stock\" method=\"post\"
+                         onsubmit=\"$$(&#x27;#&#x27;+this.id+&#x27;
+input[type=&quot;submit&quot;]&#x27;)[0].disabled = true\">
+
+<div style=\"margin:0;padding:0;display:inline\">
+<input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" />
+<input name=\"authenticity_token\" type=\"hidden\" value=\"vuoduscvLfnTT9j5cQfbEC+6vB25cgO8dGObv6vMU/A=\" />
+</div>\n
+<a href=\"/admin/stocks/new?cancel=true\" class=\"close\" data-remote=\"true\" title=\"\u5173\u95ed\uff0c\u7531\">x</a>\n  \n
+<div class='section'>\n
+<table>\n
+<tr>\n
+<td>\n
+<div class='label top req'>\u4ed3\u5e93\u540d:</div>\n
+<input id=\"stock_name\" name=\"stock[name]\" size=\"30\" type=\"text\" />\n
+</td>\n      </tr>\n      <tr>\n        <td>\n
+<div class='label top req'>\u5907\u6ce8:</div>\n
+<input id=\"stock_remark\" name=\"stock[remark]\" size=\"30\" type=\"text\" />\n        </td>\n      </tr>\n
+<tr>\n        <td>\n          <div class='label top req'>\u72b6\u6001:</div>\n
+<input checked=\"checked\" id=\"stock_status_1\" name=\"stock[status]\" type=\"radio\" value=\"1\" />\n
+<div class='label top'>\u4f7f\u7528\u4e2d</div>\n
+<input id=\"stock_status_0\" name=\"stock[status]\" type=\"radio\" value=\"0\" />\n
+<div class='label top'>\u5df2\u5173\u95ed</div>\n        </td>\n      </tr>\n
+</table>\n  </div>\n  <div class='buttonbar'>\n
+<input name=\"commit\" type=\"submit\" value=\"\u521b\u5efa\u65b0\u4ed3\u5e93\" />\n    \u6216\n
+<a href=\"/admin/stocks/new?cancel=true\" data-remote=\"true\">\u53d6\u6d88</a>\n  </div>\n</form>\n
+");
+$("empty").update("");
+crm.set_title("create_stock", "\u521b\u5efa\u65b0\u4ed3\u5e93");
 
 
 

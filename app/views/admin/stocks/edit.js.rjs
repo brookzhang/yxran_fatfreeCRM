@@ -1,0 +1,21 @@
+id = dom_id(@stock)
+
+if params[:cancel].true?     # <----------------- Hide [Edit stock]
+  page[id].replace :partial => "stock", :collection => [ @stock ]
+
+else # <----------------------------------------  Show [Edit stock] form.
+
+  if @previous                                    # Hide open [Edit stock] form if any.
+    if @previous.is_a?(stock)                      # Previous stock still exists?
+      page[dom_id(@previous)].replace :partial => "stock", :collection => [ @previous ]
+    else
+      page.call "crm.flick", "stock_#{@previous}", :remove
+    end
+  end
+
+  page.call "crm.highlight_off", id               # Disable onMouseOver for the list item.
+  page.call "crm.hide_form", :create_stock         # Hide [Create stock] form if any.
+  page[id].replace_html :partial => "edit"        # Show [Edit stock] form.
+  page[:stock_name].focus
+
+end

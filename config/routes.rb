@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   
+  get "stock_products/index"
+
+  get "stock_products/new"
+
+  get "stock_products/create"
+
+  get "stock_products/edit"
+
+  get "stock_products/update"
+
+  get "stock_products/destroy"
 
   resources :lists
 
@@ -189,6 +200,13 @@ Rails.application.routes.draw do
     resources :settings
     resources :plugins
     resources :products
+    
+    resources :stocks do
+      resources :stock_products do
+        resources :stock_product_histories
+      end
+    end
+    
   end
 
   get '/:controller/tagged/:id' => '#tagged'

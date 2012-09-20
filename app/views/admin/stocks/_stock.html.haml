@@ -1,0 +1,22 @@
+%li.highlight[stock]
+
+  %ul.tools
+    %li= link_to_edit [:admin, stock]
+    %li= link_to_delete [:admin, stock]
+
+  %span 
+    =link_to(stock.name, {:action => :edit, :id => stock.id}, {:remote  => true,
+          :onclick => "this.href = this.href.split('?')[0] + '?previous='+crm.find_form('edit_stock');"})
+  %tt
+    = t('stock_status') << ":"
+    =t(stock.status_name)
+  
+  
+  %dt{ :style => "padding: 2px 0px 0px 0px" }
+    =stock.remark
+  %dt{ :style => "padding: 2px 0px 0px 0px" }
+    =t(:stock_product_count)
+    =stock.stock_products.where("quantity > 0").count.to_s
+    =t(:kinds)
+    =link_to(t(:stock_product_view),admin_stock_stock_products_path(stock))
+    

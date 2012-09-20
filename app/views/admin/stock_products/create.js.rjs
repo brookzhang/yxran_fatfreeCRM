@@ -1,0 +1,11 @@
+if @stock_product.valid?
+  page[:create_stock_product_arrow].replace_html "&#9658;"
+  page[:create_stock_product_title].replace_html t(:stock_products)
+  page.visual_effect :toggle_blind, :create_stock_product, :duration => 0.3, :afterFinish => 'function(effect) {effect.element.update("")}'
+  page.insert_html :top, :stock_products, :partial => "stock_product", :collection => [ @stock_product ]
+  page[dom_id(@stock_product)].visual_effect :highlight, :duration => 1.5
+else
+  page[:create_stock_product].replace_html :partial => "new"
+  page[:create_stock_product].visual_effect :shake, :duration => 0.25, :distance => 6
+  page[:stock_product_name].focus
+end

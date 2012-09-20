@@ -1,0 +1,18 @@
+= styles_for :stock
+
+.title_tools
+  = link_to_inline(:create_stock, new_admin_stock_path, :text => t(:create_stock))
+
+.title
+  %span#create_stock_title #{t :stocks}
+  = image_tag("loading.gif", :size => :thumb, :id => "loading", :style => "display: none;")
+
+.remote#create_stock{ hidden }
+
+.list#stocks
+  - if @stocks.any?
+    = render :partial => "stock", :collection => @stocks
+  - else
+    = render "shared/empty"
+
+#paginate= render "shared/paginate"

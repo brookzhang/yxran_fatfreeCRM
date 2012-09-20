@@ -12,6 +12,7 @@ zh-CN:
   select_none: '-- 无 --'
   select_blank: '-- 选择 --'
   yes_button: '是'
+  kinds: 种
 
   # Settings.
   #----------------------------------------------------------------------------
@@ -671,11 +672,11 @@ zh-CN:
   # Views -> Admin -> Products.
   #----------------------------------------------------------------------------
   products: 商品
+  product_small: 商品
   admin_tab_products: 商品
   product_small: 商品
   create_product: 新增商品
   edit_product: 编辑商品
-  delete_product: 删除商品!
   save_product: 保存
   product_name: 商品名称
   product_measurement: 计量单位
@@ -684,10 +685,26 @@ zh-CN:
   
   # Views -> Admin -> Stocks.
   #----------------------------------------------------------------------------
-  admin_tab_stocks: 库存
-  stocks: 库存
-  stock_small: 库存
+  admin_tab_stocks: 仓库
+  stocks: 仓库
+  stock_small: 仓库
+  stock_name: 仓库名
+  stock_remark: 备注
+  stock_status: 状态
+  create_stock: 创建新仓库
+  stock_status_active: 使用中
+  stock_status_inactive: 已关闭
+  stock_product_count: 已有商品
+  stock_product_view: 查看库存列表
   
+  in_stock_products: 的库存列表
+  stock_product_small: 商品库存
+  stock_products: 商品库存
+  create_stock_product: 新增商品库存
+  save_stock_product: 保存
+  
+  
+  quantity: 数量
   
   
   # Views -> Admin -> Settings.
