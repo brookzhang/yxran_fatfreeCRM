@@ -1,0 +1,18 @@
+= styles_for :warehouse
+
+.title_tools
+  = link_to_inline(:create_warehouse, new_admin_warehouse_path, :text => t(:create_warehouse))
+
+.title
+  %span#create_warehouse_title #{t :warehouses}
+  = image_tag("loading.gif", :size => :thumb, :id => "loading", :style => "display: none;")
+
+.remote#create_warehouse{ hidden }
+
+.list#warehouses
+  - if @warehouses.any?
+    = render :partial => "warehouse", :collection => @warehouses
+  - else
+    = render "shared/empty"
+
+#paginate= render "shared/paginate"

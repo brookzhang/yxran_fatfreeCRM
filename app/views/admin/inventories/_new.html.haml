@@ -1,0 +1,12 @@
+
+= form_for([:admin, @inventory], :html => one_submit_only(:inventory).merge({:autocomplete => 'off'}), :remote => true) do |f|
+  = link_to_close new_admin_inventory_path
+
+  = f.error_messages :object_name => t('inventory')
+
+  = render "admin/inventories/form", :f => f
+
+  .buttonbar
+    = f.submit t(:create_inventory)
+    #{t :or}
+    = link_to_cancel new_admin_inventory_path

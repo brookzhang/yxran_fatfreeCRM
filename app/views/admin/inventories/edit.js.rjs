@@ -1,0 +1,21 @@
+id = dom_id(@inventory)
+
+if params[:cancel].true?     # <----------------- Hide [Edit inventory]
+  page[id].replace :partial => "inventory", :collection => [ @inventory ]
+
+else # <----------------------------------------  Show [Edit inventory] form.
+
+  if @previous                                    # Hide open [Edit inventory] form if any.
+    if @previous.is_a?(inventory)                      # Previous inventory still exists?
+      page[dom_id(@previous)].replace :partial => "inventory", :collection => [ @previous ]
+    else
+      page.call "crm.flick", "inventory_#{@previous}", :remove
+    end
+  end
+
+  page.call "crm.highlight_off", id               # Disable onMouseOver for the list item.
+  page.call "crm.hide_form", :create_inventory         # Hide [Create inventory] form if any.
+  page[id].replace_html :partial => "edit"        # Show [Edit inventory] form.
+  page[:inventory_name].focus
+
+end

@@ -1,0 +1,21 @@
+id = dom_id(@warehouse)
+
+if params[:cancel].true?     # <----------------- Hide [Edit warehouse]
+  page[id].replace :partial => "warehouse", :collection => [ @warehouse ]
+
+else # <----------------------------------------  Show [Edit warehouse] form.
+
+  if @previous                                    # Hide open [Edit warehouse] form if any.
+    if @previous.is_a?(warehouse)                      # Previous warehouse still exists?
+      page[dom_id(@previous)].replace :partial => "warehouse", :collection => [ @previous ]
+    else
+      page.call "crm.flick", "warehouse_#{@previous}", :remove
+    end
+  end
+
+  page.call "crm.highlight_off", id               # Disable onMouseOver for the list item.
+  page.call "crm.hide_form", :create_warehouse         # Hide [Create warehouse] form if any.
+  page[id].replace_html :partial => "edit"        # Show [Edit warehouse] form.
+  page[:warehouse_name].focus
+
+end

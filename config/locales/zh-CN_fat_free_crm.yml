@@ -683,25 +683,25 @@ zh-CN:
   product_remark: 商品说明
   unit_price: 单价
   
-  # Views -> Admin -> Stocks.
+  # Views -> Admin -> Warehouses.
   #----------------------------------------------------------------------------
-  admin_tab_stocks: 仓库
-  stocks: 仓库
-  stock_small: 仓库
-  stock_name: 仓库名
-  stock_remark: 备注
-  stock_status: 状态
-  create_stock: 创建新仓库
-  stock_status_active: 使用中
-  stock_status_inactive: 已关闭
-  stock_product_count: 已有商品
-  stock_product_view: 查看库存列表
+  admin_tab_warehouses: 仓库
+  warehouses: 仓库
+  warehouse_small: 仓库
+  warehouse_name: 仓库名
+  warehouse_remark: 备注
+  warehouse_status: 状态
+  create_warehouse: 创建新仓库
+  warehouse_status_active: 使用中
+  warehouse_status_inactive: 已关闭
+  inventory_count: 已有商品
+  inventory_view: 查看库存列表
   
-  in_stock_products: 的库存列表
-  stock_product_small: 商品库存
-  stock_products: 商品库存
-  create_stock_product: 新增商品库存
-  save_stock_product: 保存
+  in_inventories: 的库存列表
+  inventory_small: 商品库存
+  inventories: 商品库存
+  create_inventory: 新增商品库存
+  save_inventory: 保存
   
   
   quantity: 数量

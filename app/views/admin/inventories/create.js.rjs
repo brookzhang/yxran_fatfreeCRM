@@ -1,0 +1,11 @@
+if @inventory.valid?
+  page[:create_inventory_arrow].replace_html "&#9658;"
+  page[:create_inventory_title].replace_html t(:inventories)
+  page.visual_effect :toggle_blind, :create_inventory, :duration => 0.3, :afterFinish => 'function(effect) {effect.element.update("")}'
+  page.insert_html :top, :inventories, :partial => "inventory", :collection => [ @inventory ]
+  page[dom_id(@inventory)].visual_effect :highlight, :duration => 1.5
+else
+  page[:create_inventory].replace_html :partial => "new"
+  page[:create_inventory].visual_effect :shake, :duration => 0.25, :distance => 6
+  page[:inventory_name].focus
+end

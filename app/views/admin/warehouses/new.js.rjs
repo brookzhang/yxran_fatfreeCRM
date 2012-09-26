@@ -1,0 +1,9 @@
+page.call "crm.flip_form", :create_warehouse
+
+unless params[:cancel].true?
+  page[:create_warehouse].replace_html :partial => "new"
+  page[:empty].replace_html ""
+  page.call "crm.set_title", :create_warehouse, t(:create_warehouse)
+else
+  page.call "crm.set_title", :create_warehouse, t(:warehouses)
+end

@@ -1,0 +1,18 @@
+.section
+  %table
+    %tr
+      %td
+        .label.top.req #{t :warehouse_name}:
+        = f.text_field :name
+    %tr
+      %td
+        .label.top.req #{t :warehouse_remark}:
+        = f.text_field :remark
+    %tr
+      %td
+        .label.top.req #{t :warehouse_status}:
+        = f.radio_button :status , 1 ,:checked => true
+        .label.top.noreq #{t :warehouse_status_active}
+        = f.radio_button :status , 0
+        .label.top.noreq #{t :warehouse_status_inactive}
+        

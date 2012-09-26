@@ -1,0 +1,22 @@
+%li.highlight[warehouse]
+
+  %ul.tools
+    %li= link_to_edit [:admin, warehouse]
+    %li= link_to_delete [:admin, warehouse]
+
+  %span 
+    =link_to(warehouse.name, {:action => :edit, :id => warehouse.id}, {:remote  => true,
+          :onclick => "this.href = this.href.split('?')[0] + '?previous='+crm.find_form('edit_warehouse');"})
+  %tt
+    = t('warehouse_status') << ":"
+    =t(warehouse.status_name)
+  
+  
+  %dt{ :style => "padding: 2px 0px 0px 0px" }
+    =warehouse.remark
+  %dt{ :style => "padding: 2px 0px 0px 0px" }
+    =t(:inventory_count)
+    =warehouse.inventories.where("quantity > 0").count.to_s
+    =t(:kinds)
+    =link_to(t(:inventory_view),admin_inventories_path(warehouse))
+    

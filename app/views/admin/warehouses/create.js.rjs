@@ -1,0 +1,11 @@
+if @warehouse.valid?
+  page[:create_warehouse_arrow].replace_html "&#9658;"
+  page[:create_warehouse_title].replace_html t(:warehouses)
+  page.visual_effect :toggle_blind, :create_warehouse, :duration => 0.3, :afterFinish => 'function(effect) {effect.element.update("")}'
+  page.insert_html :top, :warehouses, :partial => "warehouse", :collection => [ @warehouse ]
+  page[dom_id(@warehouse)].visual_effect :highlight, :duration => 1.5
+else
+  page[:create_warehouse].replace_html :partial => "new"
+  page[:create_warehouse].visual_effect :shake, :duration => 0.25, :distance => 6
+  page[:warehouse_name].focus
+end

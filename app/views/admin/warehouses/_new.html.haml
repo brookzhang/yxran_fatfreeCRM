@@ -1,0 +1,12 @@
+
+= form_for([:admin, @warehouse], :html => one_submit_only(:warehouse).merge({:autocomplete => 'off'}), :remote => true) do |f|
+  = link_to_close new_admin_warehouse_path
+
+  = f.error_messages :object_name => t('warehouse')
+
+  = render "admin/warehouses/form", :f => f
+
+  .buttonbar
+    = f.submit t(:create_warehouse)
+    #{t :or}
+    = link_to_cancel new_admin_warehouse_path

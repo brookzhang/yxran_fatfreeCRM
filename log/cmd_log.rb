@@ -19,13 +19,18 @@ rake spec:no_acceptance	 #Run all specs except acceptance tests
 rails g model entities/Product name:string measurement:string unit_price:float remark:string 
 rails g controller admin/Products index new create edit update destroy
 
-rails g model Stock name:string remark:string status:integer
-rails g model Stock_Product stock_id:integer product_id:integer quantity:integer
-rails g model Stock_Product_History stock_product_id:integer adjusted_by:integer adjuested_to:integer adjust_type:string remark:string
-rails g controller admin/Stocks index new create edit update destroy
-rails g controller admin/stock_products index new create edit update destroy
+#rails g model Stock name:string remark:string status:integer
+#rails g model Stock_Product stock_id:integer product_id:integer quantity:integer
+#rails g model Stock_Product_History stock_product_id:integer adjusted_by:integer adjuested_to:integer adjust_type:string remark:string
+#rails g controller admin/Stocks index new create edit update destroy
+#rails g controller admin/stock_products index new create edit update destroy
 
-
+rails g model Warehouse name:string remark:string status:integer
+rails g model Inventory warehouse_id:integer product_id:integer quantity:integer last_updated_at:datetime
+rails g model History inventory_id:integer adjusted_by:integer adjusted_to:integer adjusted_type:string remark:string
+rails g controller admin/Warehouses index new create edit update destroy
+rails g controller admin/Inventories index new create edit update destroy
+rails g controller admin/Histories index new create edit update destroy
 
 
 
@@ -78,6 +83,7 @@ set HTTP_PROXY=http://172.20.1.46:8999
 export http_proxy=http://172.20.1.46:8999
 export https_proxy=http://172.20.1.46:8999
 $ git config --global http.proxy http://172.20.1.46:8999
+$ git config --global http.proxy http://172.30.4.63:3128
 
 rails new Reviver
 cd Reviver

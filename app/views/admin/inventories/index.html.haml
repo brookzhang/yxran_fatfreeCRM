@@ -1,0 +1,18 @@
+= styles_for :inventory
+
+.title_tools
+  = link_to_inline(:create_inventory, new_admin_inventory_path, :text => t(:create_inventory))
+
+.title
+  %span#create_inventory_title #{t :inventories}
+  = image_tag("loading.gif", :size => :thumb, :id => "loading", :style => "display: none;")
+
+.remote#create_inventory{ hidden }
+
+.list#inventories
+  - if @inventories.any?
+    = render :partial => "inventory", :collection => @inventories
+  - else
+    = render "shared/empty"
+
+#paginate= render "shared/paginate"
