@@ -1,6 +1,5 @@
 - assets = controller_name
 - asset = assets.singularize
-- redirect_path = params[:redirect_path]
 - if redirect_path.nil?
   - new_asset_path = controller.class.to_s.include?("Admin") ? url_for([:new, :admin, asset]) : url_for([:new, asset])
 - else

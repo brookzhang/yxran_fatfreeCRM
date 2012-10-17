@@ -1,12 +1,27 @@
 
-= form_for([:admin, @inventory], :html => one_submit_only(:inventory).merge({:autocomplete => 'off'}), :remote => true) do |f|
-  = link_to_close new_admin_inventory_path
+= form_for([:admin ,@warehouse, @inventory], :html => one_submit_only(:inventory).merge({:autocomplete => 'off'}), :remote => true) do |f|
+  = link_to_close new_admin_warehouse_inventory_path
 
   = f.error_messages :object_name => t('inventory')
 
-  = render "admin/inventories/form", :f => f
-
+  =# render "admin/inventories/form", :f => f
+  = f.hidden_field :warehouse_id, :value => @warehouse.id
+  
+  .section
+  %table
+    %tr
+      %td
+        .label.top.req #{t :product}:
+        = collection_select(:inventory ,:product_id ,@products ,:id ,:name)
+        =#product_select(:product_id, @products)
+    %tr
+      %td
+        .label.top.req #{t :quantity}:
+        = f.text_field :quantity
+        
+  
+  
   .buttonbar
     = f.submit t(:create_inventory)
     #{t :or}
-    = link_to_cancel new_admin_inventory_path
+    = link_to_cancel new_admin_warehouse_inventory_path

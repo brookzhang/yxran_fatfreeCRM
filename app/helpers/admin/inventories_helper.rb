@@ -1,2 +1,4 @@
 module Admin::InventoriesHelper
+  
+  
 end

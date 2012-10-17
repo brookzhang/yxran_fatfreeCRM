@@ -18,5 +18,5 @@
     =t(:inventory_count)
     =warehouse.inventories.where("quantity > 0").count.to_s
     =t(:kinds)
-    =link_to(t(:inventory_view),admin_inventories_path(warehouse))
+    =link_to(t(:inventory_view),admin_warehouse_inventories_path(warehouse))
     

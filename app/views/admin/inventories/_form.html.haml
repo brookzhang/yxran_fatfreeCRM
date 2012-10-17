@@ -2,17 +2,14 @@
   %table
     %tr
       %td
-        .label.top.req #{t :inventory_name}:
-        = f.text_field :name
+        .label.top.req #{t :warehouse}:
+        = f.text_field :warehouse_id
     %tr
       %td
-        .label.top.req #{t :inventory_remark}:
-        = f.text_field :remark
+        .label.top.req #{t :product}:
+        = f.text_field :product_id
     %tr
       %td
-        .label.top.req #{t :inventory_status}:
-        = f.radio_button :status , 1 ,:checked => true
-        .label.top.noreq #{t :inventory_status_active}
-        = f.radio_button :status , 0
-        .label.top.noreq #{t :inventory_status_inactive}
+        .label.top.req #{t :quantity}:
+        = f.text_field :quantity
         

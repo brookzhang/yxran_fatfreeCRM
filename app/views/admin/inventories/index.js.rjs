@@ -1,2 +1,2 @@
-page[:inventories].replace_html render :partial => "admin/inventories/inventory", :collection => @inventories
+page[:inventories].replace_html render :partial => "admin/warehouse/inventories/inventory", :collection => @inventories
 page[:paginate].replace_html :partial => "shared/paginate"

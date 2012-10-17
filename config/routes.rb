@@ -190,9 +190,12 @@ Rails.application.routes.draw do
     resources :plugins
     resources :products
     
-    resources :warehouses
-    resources :inventories
-    resources :histories
+    resources :warehouses do
+      resources :inventories do
+        resources :histories
+      end
+    end
+    
     
     
   end
