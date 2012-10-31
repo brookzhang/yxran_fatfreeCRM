@@ -28,13 +28,19 @@ class Admin::InventoriesController < ApplicationController
 
   def edit
     @warehouse = Warehouse.find(params[:warehouse_id])
+    @inventory = Inventory.find(params[:id])
   end
 
   def update
     @warehouse = Warehouse.find(params[:warehouse_id])
     @inventory = Inventory.find(params[:id])
-    @inventory.update_attributes(params[:inventory])
-
+    #@inventory.update_attributes(params[:inventory]) #first way
+    
+    #@inventory.quantity = params[:inventory][:quantity] #second way
+    #@inventory.save
+    
+    @inventory.update_attribute(:quantity,params[:inventory][:quantity]) #third way
+    
     respond_with(@inventory)
   end
 

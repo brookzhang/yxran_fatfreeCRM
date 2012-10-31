@@ -38,7 +38,6 @@ rails g controller admin/Histories index new create edit update destroy
 
 
 
-
 #################################################
 #################################################
 

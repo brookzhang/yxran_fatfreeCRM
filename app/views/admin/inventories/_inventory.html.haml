@@ -4,11 +4,12 @@
     %li= link_to_edit [:admin ,@warehouse, inventory]
     %li= link_to_delete [:admin,@warehouse, inventory]
 
-  %span 
-    =link_to(inventory.product.name, {:action => :edit, :id => inventory.id}, {:remote  => true,
-          :onclick => "this.href = this.href.split('?')[0] + '?previous='+crm.find_form('edit_inventory');"})
+  %span
+    =inventory.product.name
   %tt
     =t(:quantity) << ":"
-    =t(inventory.quantity) << " " << inventory.product.measurement
+    =link_to(t(inventory.quantity) << " " << inventory.product.measurement, {:action => :edit, :id => inventory.id}, {:remote  => true,
+          :onclick => "this.href = this.href.split('?')[0] + '?previous='+crm.find_form('edit_inventory');"})
+    
   
     
