@@ -1,4 +1,5 @@
-source :rubygems
+#source :rubygems
+source 'http://ruby.taobao.org'
 
 # Uncomment the database that you have configured in config/database.yml
 # ----------------------------------------------------------------------
