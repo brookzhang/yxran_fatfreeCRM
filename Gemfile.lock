@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
@@ -149,7 +149,6 @@ GEM
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
-    pg (0.13.2)
     pg (0.13.2-x86-mingw32)
     polyamorous (0.5.0)
       activerecord (~> 3.0)

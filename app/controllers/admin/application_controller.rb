@@ -28,6 +28,7 @@ class Admin::ApplicationController < ApplicationController
     @auto_complete = klass.text_search(@query).limit(10)
     render :partial => 'auto_complete'
   end
+  
 
 private
 
