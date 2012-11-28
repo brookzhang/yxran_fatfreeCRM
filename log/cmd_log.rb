@@ -33,7 +33,7 @@ rails g controller admin/Inventories index new create edit update destroy
 rails g controller admin/Histories index new create edit update destroy
 
 
-
+if defined?(redirect_path)  #record as a tag , for undefined variable judgement
 
 
 
